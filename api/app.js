@@ -28,10 +28,9 @@ app.use((err, req, res, next) => {
     res.render('error');
 });
 
-const port = 3000;
-
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
+// const port = process.env.PORT || 8080; // Changed port to 3001
+// app.listen(port, () => {
+//     console.log(`Server is running on port ${port}`);
+// });
 
 module.exports = app;

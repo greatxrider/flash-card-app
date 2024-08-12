@@ -10,8 +10,8 @@ app.use('/static', express.static('public'));
 
 app.set('view engine', 'pug');
 
-const mainRoutes = require('../routes');
-const cardRoutes = require('../routes/cards');
+const mainRoutes = require('./routes');
+const cardRoutes = require('./routes/cards');
 
 app.use(mainRoutes);
 app.use('/cards', cardRoutes);
@@ -28,7 +28,7 @@ app.use((err, req, res, next) => {
     res.render('error');
 });
 
-const port = process.env.PORT || 3000; // Changed port to 3000
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });

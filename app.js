@@ -1,15 +1,19 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
+const path = require('path');
 
 const app = express();
 const PORT = 8000;
 
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'pug');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use('/static', express.static('public'));
-
-app.set('view engine', 'pug');
 
 const mainRoutes = require('./routes');
 const cardRoutes = require('./routes/cards');

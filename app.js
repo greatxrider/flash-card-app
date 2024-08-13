@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 const app = express();
+const PORT = 8000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -28,9 +29,8 @@ app.use((err, req, res, next) => {
     res.render('error');
 });
 
-const port = 5000;
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+app.listen(PORT, () => {
+    console.log(`✅ Server is running on port ${PORT}`);
 });
 
 module.exports = app;

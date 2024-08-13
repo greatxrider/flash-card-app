@@ -15,7 +15,7 @@ app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-const mainRoutes = require('./routes');
+const mainRoutes = require('./routes/main');
 const cardRoutes = require('./routes/cards');
 
 app.use(mainRoutes);

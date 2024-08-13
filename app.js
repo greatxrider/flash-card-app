@@ -4,23 +4,6 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 
-// Use Helmet to set security-related HTTP headers
-app.use(helmet());
-
-// Configure CSP to allow font sources
-app.use(helmet.contentSecurityPolicy({
-    directives: {
-        defaultSrc: ["'self'"],
-        fontSrc: ["'self'", "https://fonts.gstatic.com", "https://flash-card-891ku8hgk-greatxriders-projects.vercel.app"],
-        styleSrc: ["'self'", "https://fonts.googleapis.com"],
-        scriptSrc: ["'self'"],
-        imgSrc: ["'self'"],
-        connectSrc: ["'self'"],
-        objectSrc: ["'none'"],
-        upgradeInsecureRequests: [],
-    }
-}));
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/static', express.static('public'));
